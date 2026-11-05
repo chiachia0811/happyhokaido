@@ -694,11 +694,11 @@
         const elapsed = now - startDate;
         const progressPercent = Math.min(100, Math.max(0, (elapsed / totalDuration) * 100)).toFixed(1);
 
-        statusEl.innerText = `🎉 北海道雪國冒險進行中！享受每一刻雪景吧 ❄️`;
+        statusEl.innerText = `🎉 北海道雪國冒險進行中！黑皮黑皮 ❄️`;
         barFillEl.style.width = `${progressPercent}%`;
         textEl.innerText = `旅程進度 ${progressPercent}%`;
       } else {
-        statusEl.innerText = `❄️ 2027 北海道冒險圓滿完成！帶著美好回憶返家 🏠`;
+        statusEl.innerText = `❄️ 2027 北海道冒險圓滿完成！社畜上班囉 🏠`;
         barFillEl.style.width = '100%';
         barFillEl.style.backgroundColor = '#C2E0B4';
         textEl.innerText = `已完成 (100%)`;
@@ -862,7 +862,7 @@
       // 2. 當日住宿點
       document.getElementById('hotel-title').innerHTML = `<span>🏨</span> Day ${day} 當日住宿點`;
       const hotelBox = document.getElementById('hotel-container');
-      const curHotel = hotelsData[day] || { name: "未設定住宿飯店", note: "點擊右上角按鈕即可新增飯店資訊" };
+      const curHotel = hotelsData[day] || { name: "暫時睡路邊", note: "點擊右上角按鈕即可新增飯店資訊" };
       hotelBox.innerHTML = `
         <div class="p-2.5 border-2 border-[#3E3A39] bg-[#FFFDF9] rounded-lg">
           <div class="font-bold text-[#3E3A39] text-base">${curHotel.name}</div>
@@ -959,7 +959,7 @@
     }
 
     function deleteSpotImgDirect(id) {
-      if(confirm("確定要刪除這張行程圖片嗎？")) {
+      if(confirm("要確欸？")) {
         const spot = tripData[currentDay].spots.find(s => s.id === id);
         if(spot) {
           spot.img = "";
@@ -996,7 +996,7 @@
     }
 
     function deleteSpot(id) {
-      if(confirm("確定要刪除這項行程嗎？")) {
+      if(confirm("要確欸？")) {
         tripData[currentDay].spots = tripData[currentDay].spots.filter(s => s.id !== id);
         saveTripData();
         updateDayView(currentDay);
@@ -1045,7 +1045,7 @@
     }
 
     function deleteMode(id) {
-      if(confirm("確定要刪除此項交通運具嗎？")) {
+      if(confirm("要確欸?")) {
         tripData[currentDay].modes = tripData[currentDay].modes.filter(m => m.id !== id);
         saveTripData();
         updateDayView(currentDay);
@@ -1098,7 +1098,7 @@
     }
 
     function deleteTrain(id) {
-      if(confirm("確定要刪除這班班次資訊嗎？")) {
+      if(confirm("要確欸？")) {
         tripData[currentDay].trains = tripData[currentDay].trains.filter(t => t.id !== id);
         saveTripData();
         updateDayView(currentDay);
@@ -1118,7 +1118,7 @@
     }
 
     function saveHotelEdit() {
-      const name = document.getElementById('hotel-name-input').value.trim() || "未設定飯店";
+      const name = document.getElementById('hotel-name-input').value.trim() || "暫時睡路邊";
       const note = document.getElementById('hotel-note-input').value.trim() || "";
       hotelsData[currentDay] = { name, note };
       localStorage.setItem('hokkaido_hotels', JSON.stringify(hotelsData));
@@ -1198,7 +1198,7 @@
     }
 
     function deleteNote(id) {
-      if(confirm("確定要刪除這條注意事項嗎？")) {
+      if(confirm("要確欸？")) {
         notesData = notesData.filter(n => n.id !== id);
         localStorage.setItem('hokkaido_notes', JSON.stringify(notesData));
         renderNotes();
@@ -1230,7 +1230,7 @@
       const comments = JSON.parse(localStorage.getItem('hokkaido_comments') || '[]');
       const container = document.getElementById('board-comments');
       if(comments.length === 0) {
-        container.innerHTML = `<div class="text-xs text-gray-400 text-center py-4">目前還沒有留言，快來成為第一個發言的隊友吧！</div>`;
+        container.innerHTML = `<div class="text-xs text-gray-400 text-center py-4">公威ㄚ！八嘎!</div>`;
         return;
       }
       container.innerHTML = comments.map(c => `
