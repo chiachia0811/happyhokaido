@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -540,7 +540,7 @@
     // 預設 7 天行程與獨立多運具
     const defaultTripData = {
       1: {
-        title: "Day 1：抵達札幌與熱鬧市區",
+        title: "Day 1：抵達札幌",
         modes: [
           { id: 101, name: "JR 快速 Airport 號", note: "新千歲機場 ➔ 札幌站 (約 37 分鐘)" },
           { id: 102, name: "札幌地下鐵", note: "南北線/東西線 (市區移動)" }
@@ -556,7 +556,7 @@
         ]
       },
       2: {
-        title: "Day 2：小樽雪燈之路與浪漫運河",
+        title: "Day 2：北邊一日遊",
         modes: [
           { id: 103, name: "JR 函館本線", note: "區間快速 (札幌 ➔ 小樽)" },
           { id: 104, name: "徒步散冊", note: "小樽運河與周邊商圈" }
@@ -572,7 +572,7 @@
         ]
       },
       3: {
-        title: "Day 3：旭山動物園企鵝散步大冒險",
+        title: "Day 3：夢迴小樽",
         modes: [
           { id: 105, name: "JR 特急 Lilac 號", note: "札幌 ➔ 旭川 (約 1 小時 25 分)" },
           { id: 106, name: "旭川路線巴士", note: "旭川站前 ➔ 旭山動物園" }
@@ -587,7 +587,7 @@
         ]
       },
       4: {
-        title: "Day 4：美瑛夢幻青池與精靈露台",
+        title: "Day 4：羊蹄山頑皮鬼",
         modes: [
           { id: 107, name: "JR 富良野線", note: "旭川 ➔ 美瑛" },
           { id: 108, name: "美瑛觀光巴士 / 包車", note: "景點接駁" }
@@ -601,7 +601,7 @@
         ]
       },
       5: {
-        title: "Day 5：洞爺湖雪景與溫泉體驗之旅",
+        title: "Day 5：函館喝剩",
         modes: [
           { id: 109, name: "JR 特急 Hokuto (北斗號)", note: "札幌 ➔ 洞爺 (約 1 小時 50 分)" },
           { id: 110, name: "道南巴士", note: "洞爺站 ➔ 洞爺湖溫泉街" },
@@ -616,7 +616,7 @@
         ]
       },
       6: {
-        title: "Day 6：札幌市區采風與狸小路購物",
+        title: "Day 6：湯之川",
         modes: [
           { id: 112, name: "札幌地下鐵全線 Pass", note: "南北線 / 東西線 / 東豐線" },
           { id: 113, name: "札幌路面電車 (市電)", note: "藻岩山與市區環狀線" }
@@ -630,7 +630,7 @@
         ]
       },
       7: {
-        title: "Day 7：二条市場海鮮早餐與返家",
+        title: "Day 7：歡迎歸國",
         modes: [
           { id: 114, name: "JR 快速 Airport 號", note: "札幌站 ➔ 新千歲機場" }
         ],
@@ -688,17 +688,17 @@
 
         statusEl.innerText = `⏳ 距離 2027 北海道出發還有：${days} 天 ${hours} 小時 ${minutes} 分 ${seconds} 秒`;
         barFillEl.style.width = '0%';
-        textEl.innerText = `準備中 (0%)`;
+        textEl.innerText = `哇庫哇酷 (0%)`;
       } else if (now >= startDate && now <= endDate) {
         const totalDuration = endDate - startDate;
         const elapsed = now - startDate;
         const progressPercent = Math.min(100, Math.max(0, (elapsed / totalDuration) * 100)).toFixed(1);
 
-        statusEl.innerText = `🎉 北海道雪國冒險進行中！享受每一刻雪景吧 ❄️`;
+        statusEl.innerText = `🎉 北海道雪國冒險進行中！黑皮黑皮 ❄️`;
         barFillEl.style.width = `${progressPercent}%`;
         textEl.innerText = `旅程進度 ${progressPercent}%`;
       } else {
-        statusEl.innerText = `❄️ 2027 北海道冒險圓滿完成！帶著美好回憶返家 🏠`;
+        statusEl.innerText = `❄️ 2027 北海道冒險圓滿完成！社畜回歸 🏠`;
         barFillEl.style.width = '100%';
         barFillEl.style.backgroundColor = '#C2E0B4';
         textEl.innerText = `已完成 (100%)`;
@@ -1198,7 +1198,7 @@
     }
 
     function deleteNote(id) {
-      if(confirm("確定要刪除這條注意事項嗎？")) {
+      if(confirm("下好離手喔？")) {
         notesData = notesData.filter(n => n.id !== id);
         localStorage.setItem('hokkaido_notes', JSON.stringify(notesData));
         renderNotes();
@@ -1230,7 +1230,7 @@
       const comments = JSON.parse(localStorage.getItem('hokkaido_comments') || '[]');
       const container = document.getElementById('board-comments');
       if(comments.length === 0) {
-        container.innerHTML = `<div class="text-xs text-gray-400 text-center py-4">目前還沒有留言，快來成為第一個發言的隊友吧！</div>`;
+        container.innerHTML = `<div class="text-xs text-gray-400 text-center py-4">目前還沒有留言，公威ㄚ！</div>`;
         return;
       }
       container.innerHTML = comments.map(c => `
