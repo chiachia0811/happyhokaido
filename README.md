@@ -171,7 +171,7 @@
 
       <h2 class="text-3xl font-black tracking-wider text-[#3E3A39] mb-1">HOKKAIDO SNOW TRIP</h2>
       <p class="text-sm inline-block bg-[#FFFDF9] px-4 py-1 border-2 border-[#3E3A39] font-bold rounded-full mb-4">
-        📅 2027/01/14 - 2027/01/20 (7 天冒險)
+        📅 2027/01/14 - 2027/01/20 
       </p>
 
       <div class="max-w-md mx-auto bg-[#FFFDF9] border-2 border-[#3E3A39] p-3.5 rounded-xl text-[#3E3A39]">
